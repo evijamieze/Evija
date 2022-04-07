@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../kamee jewelry/img/logo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jūsu konts</title>
+    <link href="../css/app.css" rel="stylesheet" type="text/css">
+   
+</head>
+<body>
+    <main>
+        <div class="container">
+            <form id="registerForm" method="POST" name="registration" class="form-control" onsubmit="return validateForm();">
+                <div>
+                    <h1>Izveidot kontu</h1>
+                <ul>
+                    <li>
+                        <label for="uName">Vārds</label>
+                        <input type="text" name="Name" id="uName" placeholder="Ievadi savu vārdu." required>
+                    </li>
+                    <li>
+                        <label for="uEmail">Epasts</label>
+                        <input type="email" name="Email" id="uEmail" placeholder="Ievadi savu epastu." oninput="emailExist(this)" required>
+                    </li>
+                    <li>
+                        <label for="uContactno">Taulruņa nummurs</label>
+                        <input type="phone" name="Contact No" id="uContactno" placeholder="Ievadi savu taulruņa nummuru.">
+                    </li>
+                    <li>
+                        <label for="uPassword">Parole</label>
+                        <input type="password" name="Password" id="uPassword" placeholder="Ievadi savu paroli." pattern=".{0}|.{6,}" required>
+                    </li>
+                    <li>
+                        <label for="confirmPassword">Apstiprini paroli</label>
+                        <input type="password" name="Confirm Password" id="confirmPassword" placeholder="Apstiprini paroli." oninput="verifyPassword(this)" required>
+                    </li>
+                    <li>
+                        <button type="submit" id="submit">Reģistrēties</button>
+                        <span>Jau ir konts? <a href="javascript:void(0);" onclick="showHide('logIn', 'registerForm')">Pieslēdzies tagad</a></span>
+                    </li>
+                </ul>
+                </div>
+            </form>
+            <form id="thankYou" class="form-control" style="display: none;">
+                <div style="text-align: center">
+                    <h1>Paldies!</h1>
+                    <p>Jums tagad ir konts<a href="javascript:void(0);" onclick="showHide('logIn', 'thankYou')"><a href="../view/home.html"> Jūsu konts</a></p>
+                </div>
+            </form>
+            <form name="login" id="logIn" method="POST" class="form-control" onsubmit="return loginUser()" style="display: none;">
+                <div>
+                        <h1>Pieslēgties</h1>
+                <ul>
+                    <li>
+                        <label for="uemailId">Epasts</label>
+                        <input type="email" name="uemailId" id="uemailId" placeholder="Ievadi savu epastu" required>
+                    </li>
+                    <li>
+                            <label for="ePassword">Parole</label>
+                            <input type="password" name="ePassword" id="ePassword" placeholder="Ievadi savu paroli" required>
+                        </li>
+                        <li>
+                                <a href="../view/home.html" style="color:rgb(255, 255, 255);"><button type="submit"  id="login" >Pieslēgties</a></button>
+                                
+                                <span>Nav konts? <a href="javascript:void(0);" onclick="showHide('registerForm','logIn')">Reģistrējies tagad!</a></span>
+                            </li>
+                </ul>
+            </div>
+            </form>
+        </div>
+    </main>
+
+    <script type="text/javascript" src="../js/app.js"></script>
+</body>
+</html>
